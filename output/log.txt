@@ -1,0 +1,22 @@
+2024-11-15 17:29:57,850 non-fasta/a3m file in input directory: data/lacz_gene.fna
+2024-11-15 17:29:57,850 non-fasta/a3m file in input directory: data/shh.fna
+2024-11-15 17:29:57,851 Running on GPU
+2024-11-15 17:29:57,854 Found 2 citations for tools or databases
+2024-11-15 17:29:57,854 Skipping colabfold_sample (already done)
+2024-11-15 17:29:57,855 Query 2/3: mutated_lacz_protein (length 1024)
+2024-11-15 17:31:33,741 alphafold2_ptm_model_1_seed_000 recycle=0 pLDDT=25.7 pTM=0.205
+2024-11-15 17:32:49,732 alphafold2_ptm_model_1_seed_000 recycle=1 pLDDT=24.5 pTM=0.221 tol=22.2
+2024-11-15 17:34:03,677 alphafold2_ptm_model_1_seed_000 recycle=2 pLDDT=25.1 pTM=0.232 tol=16
+2024-11-15 17:35:17,338 alphafold2_ptm_model_1_seed_000 recycle=3 pLDDT=25.7 pTM=0.238 tol=6.6
+2024-11-15 17:35:17,351 alphafold2_ptm_model_1_seed_000 took 315.2s (3 recycles)
+2024-11-15 17:35:18,319 reranking models by 'plddt' metric
+2024-11-15 17:35:18,319 rank_001_alphafold2_ptm_model_1_seed_000 pLDDT=25.7 pTM=0.238
+2024-11-15 17:35:19,132 Query 3/3: original_lacz_protein (length 1024)
+2024-11-15 17:36:33,873 alphafold2_ptm_model_1_seed_000 recycle=0 pLDDT=25.7 pTM=0.208
+2024-11-15 17:37:48,182 alphafold2_ptm_model_1_seed_000 recycle=1 pLDDT=24.5 pTM=0.221 tol=20.4
+2024-11-15 17:39:01,913 alphafold2_ptm_model_1_seed_000 recycle=2 pLDDT=25.1 pTM=0.233 tol=14.3
+2024-11-15 17:40:15,851 alphafold2_ptm_model_1_seed_000 recycle=3 pLDDT=25.7 pTM=0.237 tol=6.88
+2024-11-15 17:40:15,853 alphafold2_ptm_model_1_seed_000 took 295.6s (3 recycles)
+2024-11-15 17:40:16,792 reranking models by 'plddt' metric
+2024-11-15 17:40:16,792 rank_001_alphafold2_ptm_model_1_seed_000 pLDDT=25.7 pTM=0.237
+2024-11-15 17:40:17,608 Done
