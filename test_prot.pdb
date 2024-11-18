@@ -1,10 +1,5 @@
-HEADER    ORIGINAL LACZ
-TITLE     ITS A PROTEIN IDK DUDE
-MODEL     1                                                                     
-ATOM      1  N   MET A   1     -18.719  -4.332  53.438  1.00 23.75           N  
-ATOM      2  CA  MET A   1     -20.125  -4.680  53.500  1.00 23.75           C  
-ATOM      3  C   MET A   1     -20.703  -4.887  52.094  1.00 23.75           C  
-ATOM      4  CB  MET A   1     -20.922  -3.596  54.250  1.00 23.75           C  
+HEADER    TEST HEADER
+TITLE     TEST TITLE
 ATOM      5  O   MET A   1     -20.828  -3.936  51.344  1.00 23.75           O  
 ATOM      6  CG  MET A   1     -21.750  -4.121  55.406  1.00 23.75           C  
 ATOM      7  SD  MET A   1     -22.812  -2.826  56.156  1.00 23.75           S  
