@@ -2,10 +2,6 @@ from Bio.Seq import Seq
 from copy import deepcopy
 import random
 
-from Bio.Seq import Seq
-from copy import deepcopy
-import random
-
 class Gene():
     def __init__(self, length):
         self.nts = [random.choice(('A', 'T', 'C', 'G')) for _ in range(length)]
