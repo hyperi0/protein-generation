@@ -12,7 +12,7 @@ class Gene():
         return f'nts: {"".join(self.nts)}\n generation: {self.generation}\n mutation: {self.mutation}'
 
     def get_protein(self):
-        return Seq(self.nts).translate(stop_symbol="")
+        return Seq(''.join(self.nts)).translate(stop_symbol="")
 
     def clone(self):
         new_gene = deepcopy(self)
@@ -38,7 +38,7 @@ class Gene():
     
     def partial_deletion(self):
         start = random.randint(0, len(self.nts)-1)
-        end = random.randint(start+1, len(self.nts))
+        end = random.randint(start+3, len(self.nts))
         self.nts = self.nts[start:end]
         self.mutation = 'partial_deletion'
     
@@ -74,7 +74,7 @@ class Gene():
             self.circular_permutation,
             self.full_duplication,
         ]
-        if len(self.nts) > 1:
+        if len(self.nts) > 3:
             mutations += [self.point_deletion, self.partial_deletion]
         mutation = random.choice(mutations)
         mutation()
