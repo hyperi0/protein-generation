@@ -1,2 +1,2 @@
->9 bases: ACTCTGAAGCTACGGTGCAGATGTATTCTCACATCTGAAGCTACGGTGCAGATGTATTCTC  mutations: ['circular_permutation', 'full_duplication', 'point_insertion']
-TLKLRCRCILTSEATVQMYS
+>9 TGCTCAGTACTGACCAG ['circular_permutation', 'point_mutation', 'partial_deletion']
+CSVLT

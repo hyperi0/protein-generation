@@ -8,10 +8,10 @@ class Gene():
         self.mutations = []
 
     def __str__(self):
-        return f'bases: {"".join(self.bases)}\n mutations: {self.mutations}'
+        return f'{"".join(self.bases)}\n{self.mutations}'
 
     def get_protein(self):
-        return Seq(''.join(self.bases)).translate(stop_symbol="")
+        return Seq(''.join(self.bases)).translate(to_stop=True)
 
     def clone(self):
         new_gene = deepcopy(self)
