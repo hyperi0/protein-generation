@@ -4,66 +4,64 @@ import random
 
 class Gene():
     def __init__(self, length):
-        self.nts = [random.choice(('A', 'T', 'C', 'G')) for _ in range(length)]
-        self.generation = 0
-        self.mutation = None
+        self.bases = [random.choice(('A', 'T', 'C', 'G')) for _ in range(length)]
+        self.mutations = []
 
     def __str__(self):
-        return f'nts: {"".join(self.nts)}\n generation: {self.generation}\n mutation: {self.mutation}'
+        return f'bases: {"".join(self.bases)}\n mutations: {self.mutations}'
 
     def get_protein(self):
-        return Seq(''.join(self.nts)).translate(stop_symbol="")
+        return Seq(''.join(self.bases)).translate(stop_symbol="")
 
     def clone(self):
         new_gene = deepcopy(self)
-        new_gene.generation += 1
         return new_gene
 
     def point_insertion(self):
         base = random.choice(('A', 'T', 'C', 'G'))
-        pos = random.randint(0, len(self.nts))
-        self.nts.insert(pos, base)
-        self.mutation = 'point_insertion'
+        pos = random.randint(0, len(self.bases))
+        self.bases.insert(pos, base)
+        self.mutations.append('point_insertion')
 
     def point_deletion(self):
-        pos = random.randint(0, len(self.nts)-1)
-        del self.nts[pos]
-        self.mutation = 'point_deletion'
+        pos = random.randint(0, len(self.bases)-1)
+        del self.bases[pos]
+        self.mutations.append('point_deletion')
 
     def point_mutation(self):
-        pos = random.randint(0, len(self.nts)-1)
-        base = random.choice(list({'A', 'T', 'C', 'G'} - {self.nts[pos]}))
-        self.nts[pos] = base
-        self.mutation = 'point_mutation'
+        pos = random.randint(0, len(self.bases)-1)
+        base = random.choice(list({'A', 'T', 'C', 'G'} - {self.bases[pos]}))
+        self.bases[pos] = base
+        self.mutations.append('point_mutation')
     
     def partial_deletion(self):
-        start = random.randint(0, len(self.nts)-3)
-        end = random.randint(start+3, len(self.nts))
-        self.nts = self.nts[start:end]
-        self.mutation = 'partial_deletion'
+        start = random.randint(0, len(self.bases)-3)
+        end = random.randint(start+3, len(self.bases))
+        self.bases = self.bases[start:end]
+        self.mutations.append('partial_deletion')
     
     def random_insertion(self):
-        pos = random.randint(0, len(self.nts))
-        seq_len = random.randint(1, len(self.nts))
+        pos = random.randint(0, len(self.bases))
+        seq_len = random.randint(1, len(self.bases))
         new_seq = [random.choice(('A', 'T', 'C', 'G')) for _ in range(seq_len)]
-        self.nts[pos:pos] = new_seq
-        self.mutation = 'random_insertion'
+        self.bases[pos:pos] = new_seq
+        self.mutations.append('random_insertion')
 
     def partial_duplication(self):
-        pos = random.randint(0, len(self.nts)-1)
-        seq_len = random.randint(1, len(self.nts))
-        new_seq = self.nts[pos:pos+seq_len]
-        self.nts[pos:pos] = new_seq
-        self.mutation = 'partial_duplication'
+        pos = random.randint(0, len(self.bases)-1)
+        seq_len = random.randint(1, len(self.bases))
+        new_seq = self.bases[pos:pos+seq_len]
+        self.bases[pos:pos] = new_seq
+        self.mutations.append('partial_duplication')
 
     def circular_permutation(self):
-        pos = random.randint(1, len(self.nts)-1)
-        self.nts = self.nts[pos:] + self.nts[:pos]
-        self.mutation = 'circular_permutation'
+        pos = random.randint(1, len(self.bases)-1)
+        self.bases = self.bases[pos:] + self.bases[:pos]
+        self.mutations.append('circular_permutation')
 
     def full_duplication(self):
-        self.nts = self.nts + self.nts
-        self.mutation = 'full_duplication'
+        self.bases = self.bases + self.bases
+        self.mutations.append('full_duplication')
 
     def random_mutation(self):
         mutations = [
@@ -74,7 +72,7 @@ class Gene():
             self.circular_permutation,
             self.full_duplication,
         ]
-        if len(self.nts) > 3:
+        if len(self.bases) > 3:
             mutations += [self.point_deletion, self.partial_deletion]
         mutation = random.choice(mutations)
         mutation()
@@ -98,4 +96,4 @@ if __name__ == '__main__':
         new_gene = gene.clone()
         mutation(new_gene)
         print(new_gene)
-        print(len(new_gene.nts))
+        print(len(new_gene.bases))
