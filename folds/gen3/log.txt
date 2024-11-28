@@ -1,0 +1,3 @@
+2024-11-28 12:28:16,982 Running on GPU
+2024-11-28 12:28:16,984 Found 2 citations for tools or databases
+2024-11-28 12:28:16,984 Query 1/10: gene2 (length 0)

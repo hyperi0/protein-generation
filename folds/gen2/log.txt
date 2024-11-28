@@ -1,0 +1,91 @@
+2024-11-28 12:27:36,698 Running on GPU
+2024-11-28 12:27:36,700 Found 2 citations for tools or databases
+2024-11-28 12:27:36,700 Query 1/10: gene6 (length 4)
+2024-11-28 12:27:40,028 Padding length to 14
+2024-11-28 12:27:49,256 alphafold2_ptm_model_1_seed_000 recycle=0 pLDDT=73.6 pTM=0.0901
+2024-11-28 12:27:49,355 alphafold2_ptm_model_1_seed_000 recycle=1 pLDDT=24.1 pTM=0.00183 tol=6.43
+2024-11-28 12:27:49,453 alphafold2_ptm_model_1_seed_000 recycle=2 pLDDT=27.4 pTM=0.000553 tol=13.5
+2024-11-28 12:27:49,552 alphafold2_ptm_model_1_seed_000 recycle=3 pLDDT=29.1 pTM=0.000773 tol=8.16
+2024-11-28 12:27:49,552 alphafold2_ptm_model_1_seed_000 took 9.5s (3 recycles)
+2024-11-28 12:27:49,554 reranking models by 'plddt' metric
+2024-11-28 12:27:49,555 rank_001_alphafold2_ptm_model_1_seed_000 pLDDT=29.1 pTM=0.000773
+2024-11-28 12:27:49,842 Query 2/10: gene0 (length 9)
+2024-11-28 12:27:50,946 Padding length to 14
+2024-11-28 12:27:51,045 alphafold2_ptm_model_1_seed_000 recycle=0 pLDDT=76.4 pTM=0.0525
+2024-11-28 12:27:51,143 alphafold2_ptm_model_1_seed_000 recycle=1 pLDDT=76.1 pTM=0.0531 tol=0.503
+2024-11-28 12:27:51,242 alphafold2_ptm_model_1_seed_000 recycle=2 pLDDT=76.8 pTM=0.0533 tol=0.316
+2024-11-28 12:27:51,340 alphafold2_ptm_model_1_seed_000 recycle=3 pLDDT=75.8 pTM=0.0531 tol=0.0797
+2024-11-28 12:27:51,341 alphafold2_ptm_model_1_seed_000 took 0.4s (3 recycles)
+2024-11-28 12:27:51,344 reranking models by 'plddt' metric
+2024-11-28 12:27:51,344 rank_001_alphafold2_ptm_model_1_seed_000 pLDDT=75.8 pTM=0.0531
+2024-11-28 12:27:51,646 Query 3/10: gene2 (length 9)
+2024-11-28 12:27:52,724 Padding length to 14
+2024-11-28 12:27:52,823 alphafold2_ptm_model_1_seed_000 recycle=0 pLDDT=75.3 pTM=0.0464
+2024-11-28 12:27:52,921 alphafold2_ptm_model_1_seed_000 recycle=1 pLDDT=70.6 pTM=0.0456 tol=0.564
+2024-11-28 12:27:53,019 alphafold2_ptm_model_1_seed_000 recycle=2 pLDDT=69.7 pTM=0.0453 tol=0.192
+2024-11-28 12:27:53,117 alphafold2_ptm_model_1_seed_000 recycle=3 pLDDT=69.4 pTM=0.045 tol=0.116
+2024-11-28 12:27:53,117 alphafold2_ptm_model_1_seed_000 took 0.4s (3 recycles)
+2024-11-28 12:27:53,120 reranking models by 'plddt' metric
+2024-11-28 12:27:53,121 rank_001_alphafold2_ptm_model_1_seed_000 pLDDT=69.4 pTM=0.045
+2024-11-28 12:27:53,452 Query 4/10: gene3 (length 9)
+2024-11-28 12:27:54,533 Padding length to 14
+2024-11-28 12:27:54,632 alphafold2_ptm_model_1_seed_000 recycle=0 pLDDT=64.3 pTM=0.0441
+2024-11-28 12:27:54,730 alphafold2_ptm_model_1_seed_000 recycle=1 pLDDT=64.1 pTM=0.0448 tol=0.396
+2024-11-28 12:27:54,828 alphafold2_ptm_model_1_seed_000 recycle=2 pLDDT=64.8 pTM=0.0447 tol=0.11
+2024-11-28 12:27:54,926 alphafold2_ptm_model_1_seed_000 recycle=3 pLDDT=64.1 pTM=0.0445 tol=0.308
+2024-11-28 12:27:54,927 alphafold2_ptm_model_1_seed_000 took 0.4s (3 recycles)
+2024-11-28 12:27:54,930 reranking models by 'plddt' metric
+2024-11-28 12:27:54,930 rank_001_alphafold2_ptm_model_1_seed_000 pLDDT=64.1 pTM=0.0445
+2024-11-28 12:27:55,225 Query 5/10: gene5 (length 10)
+2024-11-28 12:27:56,281 Padding length to 14
+2024-11-28 12:27:56,381 alphafold2_ptm_model_1_seed_000 recycle=0 pLDDT=67.9 pTM=0.0409
+2024-11-28 12:27:56,479 alphafold2_ptm_model_1_seed_000 recycle=1 pLDDT=76.4 pTM=0.0414 tol=0.46
+2024-11-28 12:27:56,578 alphafold2_ptm_model_1_seed_000 recycle=2 pLDDT=73.7 pTM=0.0417 tol=0.266
+2024-11-28 12:27:56,676 alphafold2_ptm_model_1_seed_000 recycle=3 pLDDT=74.7 pTM=0.0416 tol=0.229
+2024-11-28 12:27:56,677 alphafold2_ptm_model_1_seed_000 took 0.4s (3 recycles)
+2024-11-28 12:27:56,679 reranking models by 'plddt' metric
+2024-11-28 12:27:56,679 rank_001_alphafold2_ptm_model_1_seed_000 pLDDT=74.7 pTM=0.0416
+2024-11-28 12:27:56,970 Query 6/10: gene7 (length 12)
+2024-11-28 12:27:58,018 Padding length to 14
+2024-11-28 12:27:58,117 alphafold2_ptm_model_1_seed_000 recycle=0 pLDDT=68.2 pTM=0.0349
+2024-11-28 12:27:58,215 alphafold2_ptm_model_1_seed_000 recycle=1 pLDDT=72.4 pTM=0.0352 tol=1.05
+2024-11-28 12:27:58,313 alphafold2_ptm_model_1_seed_000 recycle=2 pLDDT=72.6 pTM=0.0355 tol=0.577
+2024-11-28 12:27:58,411 alphafold2_ptm_model_1_seed_000 recycle=3 pLDDT=70.8 pTM=0.0357 tol=0.952
+2024-11-28 12:27:58,411 alphafold2_ptm_model_1_seed_000 took 0.4s (3 recycles)
+2024-11-28 12:27:58,413 reranking models by 'plddt' metric
+2024-11-28 12:27:58,413 rank_001_alphafold2_ptm_model_1_seed_000 pLDDT=70.8 pTM=0.0357
+2024-11-28 12:27:58,703 Query 7/10: gene4 (length 14)
+2024-11-28 12:27:59,855 alphafold2_ptm_model_1_seed_000 recycle=0 pLDDT=62.6 pTM=0.0295
+2024-11-28 12:27:59,953 alphafold2_ptm_model_1_seed_000 recycle=1 pLDDT=65.6 pTM=0.0309 tol=3.23
+2024-11-28 12:28:00,051 alphafold2_ptm_model_1_seed_000 recycle=2 pLDDT=75.4 pTM=0.0317 tol=1.19
+2024-11-28 12:28:00,149 alphafold2_ptm_model_1_seed_000 recycle=3 pLDDT=74.8 pTM=0.0315 tol=0.444
+2024-11-28 12:28:00,149 alphafold2_ptm_model_1_seed_000 took 0.4s (3 recycles)
+2024-11-28 12:28:00,152 reranking models by 'plddt' metric
+2024-11-28 12:28:00,152 rank_001_alphafold2_ptm_model_1_seed_000 pLDDT=74.8 pTM=0.0315
+2024-11-28 12:28:00,432 Query 8/10: gene1 (length 20)
+2024-11-28 12:28:01,911 Padding length to 23
+2024-11-28 12:28:12,102 alphafold2_ptm_model_1_seed_000 recycle=0 pLDDT=71.6 pTM=0.0674
+2024-11-28 12:28:12,248 alphafold2_ptm_model_1_seed_000 recycle=1 pLDDT=76.8 pTM=0.0719 tol=0.533
+2024-11-28 12:28:12,391 alphafold2_ptm_model_1_seed_000 recycle=2 pLDDT=78.3 pTM=0.0739 tol=0.235
+2024-11-28 12:28:12,533 alphafold2_ptm_model_1_seed_000 recycle=3 pLDDT=79.1 pTM=0.0743 tol=0.155
+2024-11-28 12:28:12,534 alphafold2_ptm_model_1_seed_000 took 10.6s (3 recycles)
+2024-11-28 12:28:12,538 reranking models by 'plddt' metric
+2024-11-28 12:28:12,539 rank_001_alphafold2_ptm_model_1_seed_000 pLDDT=79.1 pTM=0.0743
+2024-11-28 12:28:12,842 Query 9/10: gene9 (length 20)
+2024-11-28 12:28:14,109 Padding length to 23
+2024-11-28 12:28:14,254 alphafold2_ptm_model_1_seed_000 recycle=0 pLDDT=70.2 pTM=0.0744
+2024-11-28 12:28:14,393 alphafold2_ptm_model_1_seed_000 recycle=1 pLDDT=67.2 pTM=0.0659 tol=0.142
+2024-11-28 12:28:14,532 alphafold2_ptm_model_1_seed_000 recycle=2 pLDDT=67.7 pTM=0.0652 tol=0.0641
+2024-11-28 12:28:14,671 alphafold2_ptm_model_1_seed_000 recycle=3 pLDDT=68.6 pTM=0.0671 tol=0.0547
+2024-11-28 12:28:14,672 alphafold2_ptm_model_1_seed_000 took 0.6s (3 recycles)
+2024-11-28 12:28:14,677 reranking models by 'plddt' metric
+2024-11-28 12:28:14,677 rank_001_alphafold2_ptm_model_1_seed_000 pLDDT=68.6 pTM=0.0671
+2024-11-28 12:28:15,017 Query 10/10: gene8 (length 23)
+2024-11-28 12:28:16,271 alphafold2_ptm_model_1_seed_000 recycle=0 pLDDT=62.4 pTM=0.116
+2024-11-28 12:28:16,414 alphafold2_ptm_model_1_seed_000 recycle=1 pLDDT=67.5 pTM=0.146 tol=0.751
+2024-11-28 12:28:16,551 alphafold2_ptm_model_1_seed_000 recycle=2 pLDDT=69.2 pTM=0.152 tol=0.54
+2024-11-28 12:28:16,684 alphafold2_ptm_model_1_seed_000 recycle=3 pLDDT=70.4 pTM=0.156 tol=0.361
+2024-11-28 12:28:16,685 alphafold2_ptm_model_1_seed_000 took 0.6s (3 recycles)
+2024-11-28 12:28:16,689 reranking models by 'plddt' metric
+2024-11-28 12:28:16,689 rank_001_alphafold2_ptm_model_1_seed_000 pLDDT=70.4 pTM=0.156
+2024-11-28 12:28:16,979 Done

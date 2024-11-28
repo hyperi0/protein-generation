@@ -64,18 +64,20 @@ class Gene():
         self.mutations.append('full_duplication')
 
     def random_mutation(self):
+        new_gene = self.clone()
         mutations = [
-            self.point_insertion,
-            self.point_mutation,
-            self.random_insertion,
-            self.partial_duplication,
-            self.circular_permutation,
-            self.full_duplication,
+            new_gene.point_insertion,
+            new_gene.point_mutation,
+            new_gene.random_insertion,
+            new_gene.partial_duplication,
+            new_gene.circular_permutation,
+            new_gene.full_duplication,
         ]
         if len(self.bases) > 3:
-            mutations += [self.point_deletion, self.partial_deletion]
+            mutations += [new_gene.point_deletion, new_gene.partial_deletion]
         mutation = random.choice(mutations)
         mutation()
+        return new_gene
 
 # test all mutations
 if __name__ == '__main__':
