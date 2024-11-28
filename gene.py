@@ -37,7 +37,7 @@ class Gene():
         self.mutation = 'point_mutation'
     
     def partial_deletion(self):
-        start = random.randint(0, len(self.nts)-1)
+        start = random.randint(0, len(self.nts)-3)
         end = random.randint(start+3, len(self.nts))
         self.nts = self.nts[start:end]
         self.mutation = 'partial_deletion'
