@@ -3,12 +3,24 @@ from copy import deepcopy
 import random
 
 class Gene():
-    def __init__(self, length):
-        self.bases = [random.choice(('A', 'T', 'C', 'G')) for _ in range(length)]
-        self.mutations = []
+    def __init__(self, bases, mutations, fitness, fasta):
+        self.bases = bases
+        self.mutations = mutations
+        self.fitness = fitness
+        self.fasta = fasta
 
     def __str__(self):
-        return f'{"".join(self.bases)}\n{self.mutations}'
+        return f'{"".join(self.bases)}'
+
+    @staticmethod
+    def generate(length):
+        bases = [random.choice(('A', 'T', 'C', 'G')) for _ in range(length)]
+        return Gene(bases, [], 0, '')
+
+    def from_str(self, string):
+        bases, mutations = string.split("\n")
+        self.bases = list(bases)
+        self.mutations = mutations.split(", ")
 
     def get_protein(self):
         return Seq(''.join(self.bases)).translate(to_stop=True)

@@ -1,8 +1,0 @@
-MODEL     1                                                                     
-ATOM      1  N   GLY A   1      22.688 -60.000  -0.087  1.00  9.99           N  
-ATOM      2  CA  GLY A   1      23.484 -61.156  -0.464  1.00  9.99           C  
-ATOM      3  C   GLY A   1      24.969 -60.969  -0.197  1.00  9.99           C  
-ATOM      4  O   GLY A   1      25.531 -59.938  -0.519  1.00  9.99           O  
-TER       5      ALA A   1                                                      
-ENDMDL                                                                          
-END                                                                             

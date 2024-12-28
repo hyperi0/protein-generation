@@ -1,5 +1,6 @@
 import os
 import shutil
+import json
 from pathlib import Path
 from tqdm import trange
 
@@ -49,6 +50,10 @@ def log_evolution(generations, logfile):
                 f.write(str(gene) + '\n' + str(fitness) + '\n\n')
             f.write('\n\n')
 
+def log_evolution_json(generations, logfile):
+    data = [{str(k): v for k, v in generation.items()} for generation in generations]
+    with open(logfile, 'w') as f:
+        json.dump(data, f)
 
 if __name__ == '__main__':
 
@@ -62,9 +67,9 @@ if __name__ == '__main__':
     #parser.add_argument('--logfile', type=str, default='log.txt')
     #args = parser.parse_args()
 
-    n_genes = 10
+    n_genes = 1
     n_bases = 30
-    n_generations = 10
+    n_generations = 1
     proteins_path = 'proteins'
     folds_path = 'folds'
     logfile = 'log.txt'
@@ -94,24 +99,30 @@ if __name__ == '__main__':
 
     generations = []
     generation = {}
+
     for i in trange(n_generations):
+        
         # generate initial population or mutate last generation
         if i == 0:
             mutations = [Gene(n_bases) for _ in range(n_genes * 2)]
         else:
             mutations = [gene.random_mutation() for gene in generation.keys()]
+
         # remove empty proteins (genes have >=3 bases but can start with stop codon)
         mutations = [gene for gene in mutations if len(gene.get_protein()) > 0]
         save_proteins(mutations, f'{proteins_path}/gen{i}')
+
         # fold mutated proteins and calculate fitness
         results = fold(f'{proteins_path}/gen{i}', f'{folds_path}/gen{i}', colabfold_params)
         mutation_fitnesses = calculate_fitnesses(mutations, results)
+
         # add mutations to generation
         genes = list(generation.keys()) + mutations
         fitnesses = list(generation.values()) + mutation_fitnesses
+
         # weak selection for next generation
         selection = np.random.choice(genes, size=n_genes, replace=False, p=np.divide(fitnesses, sum(fitnesses)))
         generation = {gene: fitness for gene, fitness in zip(genes, fitnesses) if gene in selection}
         generations.append(generation)
 
-    log_evolution(generations, logfile)
+    log_evolution_json(generations, logfile)
