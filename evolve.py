@@ -1,17 +1,16 @@
+from gene import Gene
 import os
 import shutil
 import json
 from pathlib import Path
 from tqdm import trange
-
-from gene import Gene
-
 import numpy as np
 from Bio import SeqIO
 from Bio.SeqRecord import SeqRecord
 from colabfold.batch import get_queries, run
 from colabfold.download import default_data_dir
 from colabfold.utils import setup_logging
+from matplotlib import pyplot as plt
 
 def clear_dir(filepath):
     for root, dirs, files in os.walk(filepath):
@@ -25,35 +24,41 @@ def save_proteins(genes, folder):
     for i, gene in enumerate(genes):
         protein = gene.get_protein()
         record = SeqRecord(protein, id=str(i), description=str(gene))
+        filename = f'{folder}/gene{i}.fasta'
+        gene.fasta = filename
         SeqIO.write(record, f'{folder}/gene{i}.fasta', 'fasta')
     
-def fold(input_dir, result_dir, kwargs):
-    setup_logging(Path(result_dir).joinpath("log.txt"))
+def fold(input_dir, result_dir, logfile, kwargs):
+    # setup_logging(Path(result_dir).joinpath(logfile))
     kwargs['queries'], kwargs['is_complex'] = get_queries(input_dir)
     kwargs['result_dir'] = result_dir
     results = run(**kwargs)
     return results
 
 def calculate_fitnesses(genes, results):
-    fitnesses = []
     for gene, metric in zip(genes, results['metric']):
         mean_plddt, ptm = metric[0]['mean_plddt'], metric[0]['ptm']
         fitness = (mean_plddt / 100) * 0.5 + ptm * 0.5 + len(gene.get_protein()) * 0.01
-        fitnesses.append(fitness)
-    return fitnesses
+        gene.fitness = fitness
 
 def log_evolution(generations, logfile):
     with open(logfile, 'w') as f:
-        for i, generation in enumerate(generations):
-            f.write(f'-------------Generation {i}---------------\n')
-            for gene, fitness in generation.items():
-                f.write(str(gene) + '\n' + str(fitness) + '\n\n')
-            f.write('\n\n')
+        data = [[gene.__dict__ for gene in gen] for gen in generations]
+        json.dump(data, f, indent=4)
 
-def log_evolution_json(generations, logfile):
-    data = [{str(k): v for k, v in generation.items()} for generation in generations]
-    with open(logfile, 'w') as f:
-        json.dump(data, f)
+def read_evolution(logfile):
+    with open(logfile, 'r') as f:
+        data = json.load(f)
+        generations = [[Gene(**d) for d in gen] for gen in data]
+    return generations
+
+def plot_fitnesses(generations):
+    fig = plt.figure()
+    x = np.arange(len(generations))
+    y = [np.mean([gene.fitness for gene in gen]) for gen in generations]
+    yerr = [np.std([gene.fitness for gene in gen]) for gen in generations]
+    plt.errorbar(x, y, yerr=yerr)
+    plt.show()
 
 if __name__ == '__main__':
 
@@ -67,12 +72,13 @@ if __name__ == '__main__':
     #parser.add_argument('--logfile', type=str, default='log.txt')
     #args = parser.parse_args()
 
-    n_genes = 1
-    n_bases = 30
-    n_generations = 1
+    n_genes = 10
+    n_bases = 10
+    n_generations = 10
     proteins_path = 'proteins'
     folds_path = 'folds'
     logfile = 'log.txt'
+    evolution_file = 'evolution.json'
 
     colabfold_params = {
         'msa_mode': "single_sequence", #@param ["MMseqs2 (UniRef+Environmental)", "MMseqs2 (UniRef only)","single_sequence","custom"]
@@ -97,32 +103,31 @@ if __name__ == '__main__':
     clear_dir(proteins_path)
     clear_dir(folds_path)
 
-    generations = []
-    generation = {}
-
-    for i in trange(n_generations):
-        
-        # generate initial population or mutate last generation
+    for i in trange(n_generations+1):
+        # first generation
         if i == 0:
-            mutations = [Gene(n_bases) for _ in range(n_genes * 2)]
+            generation = [Gene.generate(n_bases) for _ in range(n_genes)]
+            # filter empty proteins (begins with stop codon)
+            generation = [gene for gene in generation if len(gene.get_protein()) > 0]
+            save_proteins(generation, f'{proteins_path}/gen{0}')
+            results = fold(f'{proteins_path}/gen{0}', f'{folds_path}/gen{0}', logfile, colabfold_params)
+            calculate_fitnesses(generation, results)
+            generations = [generation]
+        # subsequent generations
         else:
-            mutations = [gene.random_mutation() for gene in generation.keys()]
+            mutations = [gene.random_mutation() for gene in generation]
+            # remove empty proteins
+            mutations = [gene for gene in mutations if len(gene.get_protein()) > 0]
 
-        # remove empty proteins (genes have >=3 bases but can start with stop codon)
-        mutations = [gene for gene in mutations if len(gene.get_protein()) > 0]
-        save_proteins(mutations, f'{proteins_path}/gen{i}')
+            # fold mutated proteins and calculate fitnesses as a batch
+            save_proteins(mutations, f'{proteins_path}/gen{i}')
+            results = fold(f'{proteins_path}/gen{i}', f'{folds_path}/gen{i}', logfile, colabfold_params)
+            calculate_fitnesses(mutations, results)
+            generation += mutations
 
-        # fold mutated proteins and calculate fitness
-        results = fold(f'{proteins_path}/gen{i}', f'{folds_path}/gen{i}', colabfold_params)
-        mutation_fitnesses = calculate_fitnesses(mutations, results)
+            # stochastic selection
+            fitnesses = [gene.fitness for gene in generation]
+            generation = np.random.choice(generation, size=n_genes, replace=False, p=np.divide(fitnesses, sum(fitnesses))).tolist()
+            generations.append(generation)
 
-        # add mutations to generation
-        genes = list(generation.keys()) + mutations
-        fitnesses = list(generation.values()) + mutation_fitnesses
-
-        # weak selection for next generation
-        selection = np.random.choice(genes, size=n_genes, replace=False, p=np.divide(fitnesses, sum(fitnesses)))
-        generation = {gene: fitness for gene, fitness in zip(genes, fitnesses) if gene in selection}
-        generations.append(generation)
-
-    log_evolution_json(generations, logfile)
+    log_evolution(generations, evolution_file)

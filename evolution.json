@@ -1,0 +1,412 @@
+[
+    [
+        {
+            "bases": [
+                "A",
+                "T",
+                "C",
+                "G",
+                "A",
+                "C",
+                "T",
+                "C",
+                "A",
+                "G"
+            ],
+            "mutations": [],
+            "fitness": 0.21883562564849854,
+            "fasta": "proteins/gen0/gene0.fasta"
+        },
+        {
+            "bases": [
+                "G",
+                "A",
+                "A",
+                "A",
+                "T",
+                "T",
+                "C",
+                "G",
+                "C",
+                "C"
+            ],
+            "mutations": [],
+            "fitness": 0.25155517578125,
+            "fasta": "proteins/gen0/gene1.fasta"
+        },
+        {
+            "bases": [
+                "C",
+                "A",
+                "C",
+                "T",
+                "T",
+                "A",
+                "A",
+                "C",
+                "A",
+                "C"
+            ],
+            "mutations": [],
+            "fitness": 0.21182920455932616,
+            "fasta": "proteins/gen0/gene2.fasta"
+        },
+        {
+            "bases": [
+                "C",
+                "T",
+                "C",
+                "A",
+                "G",
+                "A",
+                "T",
+                "C",
+                "G",
+                "A"
+            ],
+            "mutations": [
+                "circular_permutation"
+            ],
+            "fitness": 0.14803049087524414,
+            "fasta": "proteins/gen1/gene0.fasta"
+        },
+        {
+            "bases": [
+                "G",
+                "A",
+                "A",
+                "A",
+                "T",
+                "T",
+                "C",
+                "C",
+                "C"
+            ],
+            "mutations": [
+                "point_deletion"
+            ],
+            "fitness": 0.23962343215942383,
+            "fasta": "proteins/gen1/gene1.fasta"
+        },
+        {
+            "bases": [
+                "C",
+                "T",
+                "T",
+                "A",
+                "C",
+                "T",
+                "T",
+                "A",
+                "A",
+                "C",
+                "A",
+                "C"
+            ],
+            "mutations": [
+                "random_insertion"
+            ],
+            "fitness": 0.23457229137420654,
+            "fasta": "proteins/gen1/gene2.fasta"
+        }
+    ],
+    [
+        {
+            "bases": [
+                "G",
+                "A",
+                "A",
+                "A",
+                "T",
+                "T",
+                "C",
+                "C",
+                "C"
+            ],
+            "mutations": [
+                "point_deletion"
+            ],
+            "fitness": 0.23962343215942383,
+            "fasta": "proteins/gen1/gene1.fasta"
+        },
+        {
+            "bases": [
+                "C",
+                "A",
+                "C",
+                "T",
+                "T",
+                "A",
+                "A",
+                "C",
+                "A",
+                "C"
+            ],
+            "mutations": [],
+            "fitness": 0.21182920455932616,
+            "fasta": "proteins/gen0/gene2.fasta"
+        },
+        {
+            "bases": [
+                "C",
+                "T",
+                "C",
+                "A",
+                "G",
+                "A",
+                "T",
+                "C",
+                "G",
+                "A"
+            ],
+            "mutations": [
+                "circular_permutation"
+            ],
+            "fitness": 0.14803049087524414,
+            "fasta": "proteins/gen1/gene0.fasta"
+        },
+        {
+            "bases": [
+                "C",
+                "C",
+                "C",
+                "G",
+                "A",
+                "A",
+                "A",
+                "T",
+                "T"
+            ],
+            "mutations": [
+                "point_deletion",
+                "circular_permutation"
+            ],
+            "fitness": 0.1991264295578003,
+            "fasta": "proteins/gen2/gene0.fasta"
+        },
+        {
+            "bases": [
+                "G",
+                "A",
+                "C",
+                "T",
+                "T",
+                "A",
+                "A",
+                "C",
+                "A",
+                "C"
+            ],
+            "mutations": [
+                "point_mutation"
+            ],
+            "fitness": 0.19930342197418213,
+            "fasta": "proteins/gen2/gene1.fasta"
+        },
+        {
+            "bases": [
+                "C",
+                "T",
+                "C",
+                "A",
+                "G",
+                "A",
+                "T",
+                "C",
+                "G",
+                "C",
+                "A"
+            ],
+            "mutations": [
+                "circular_permutation",
+                "point_insertion"
+            ],
+            "fitness": 0.23962343215942383,
+            "fasta": "proteins/gen2/gene2.fasta"
+        }
+    ],
+    [
+        {
+            "bases": [
+                "G",
+                "A",
+                "A",
+                "A",
+                "T",
+                "T",
+                "C",
+                "C",
+                "C"
+            ],
+            "mutations": [
+                "point_deletion"
+            ],
+            "fitness": 0.23962343215942383,
+            "fasta": "proteins/gen1/gene1.fasta"
+        },
+        {
+            "bases": [
+                "C",
+                "A",
+                "C",
+                "T",
+                "T",
+                "A",
+                "A",
+                "C",
+                "A",
+                "C"
+            ],
+            "mutations": [],
+            "fitness": 0.21182920455932616,
+            "fasta": "proteins/gen0/gene2.fasta"
+        },
+        {
+            "bases": [
+                "C",
+                "T",
+                "C",
+                "A",
+                "G",
+                "A",
+                "T",
+                "C",
+                "G",
+                "C",
+                "A"
+            ],
+            "mutations": [
+                "circular_permutation",
+                "point_insertion"
+            ],
+            "fitness": 0.23962343215942383,
+            "fasta": "proteins/gen2/gene2.fasta"
+        },
+        {
+            "bases": [
+                "G",
+                "A",
+                "A",
+                "A",
+                "T",
+                "T",
+                "C",
+                "T",
+                "C",
+                "C"
+            ],
+            "mutations": [
+                "point_deletion",
+                "point_insertion"
+            ],
+            "fitness": 0.2516544437408447,
+            "fasta": "proteins/gen3/gene0.fasta"
+        },
+        {
+            "bases": [
+                "C",
+                "A",
+                "C",
+                "T",
+                "T",
+                "A",
+                "C",
+                "T",
+                "T",
+                "A",
+                "A",
+                "C",
+                "A",
+                "C"
+            ],
+            "mutations": [
+                "partial_duplication"
+            ],
+            "fitness": 0.2672172164916992,
+            "fasta": "proteins/gen3/gene1.fasta"
+        },
+        {
+            "bases": [
+                "T",
+                "C",
+                "G",
+                "C",
+                "A",
+                "C",
+                "T",
+                "C",
+                "A",
+                "G",
+                "A"
+            ],
+            "mutations": [
+                "circular_permutation",
+                "point_insertion",
+                "circular_permutation"
+            ],
+            "fitness": 0.22385026931762694,
+            "fasta": "proteins/gen3/gene2.fasta"
+        }
+    ],
+    [
+        {
+            "bases": [
+                "G",
+                "A",
+                "A",
+                "A",
+                "T",
+                "T",
+                "C",
+                "C",
+                "C"
+            ],
+            "mutations": [
+                "point_deletion"
+            ],
+            "fitness": 0.23962343215942383,
+            "fasta": "proteins/gen1/gene1.fasta"
+        },
+        {
+            "bases": [
+                "C",
+                "T",
+                "C",
+                "A",
+                "G",
+                "A",
+                "T",
+                "C",
+                "G",
+                "C",
+                "A"
+            ],
+            "mutations": [
+                "circular_permutation",
+                "point_insertion"
+            ],
+            "fitness": 0.23962343215942383,
+            "fasta": "proteins/gen2/gene2.fasta"
+        },
+        {
+            "bases": [
+                "G",
+                "A",
+                "A",
+                "A",
+                "T",
+                "T",
+                "C",
+                "T",
+                "C",
+                "C"
+            ],
+            "mutations": [
+                "point_deletion",
+                "point_insertion"
+            ],
+            "fitness": 0.2516544437408447,
+            "fasta": "proteins/gen3/gene0.fasta"
+        }
+    ]
+]
