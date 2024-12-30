@@ -72,9 +72,9 @@ if __name__ == '__main__':
     #parser.add_argument('--logfile', type=str, default='log.txt')
     #args = parser.parse_args()
 
-    n_genes = 10
-    n_bases = 10
-    n_generations = 10
+    n_genes = 3
+    n_bases = 50
+    n_generations = 3
     proteins_path = 'proteins'
     folds_path = 'folds'
     logfile = 'log.txt'
